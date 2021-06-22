@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<script  src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="crossorigin="anonymous"></script>
+	</head>
+	<body>
+	    <?php		
+			date_default_timezone_set('Asia/Kolkata');
+			$nextdate =  date('M d, Y H:i:s' , strtotime("+2 days"));
+		?>
+		<p id="timer-stop"></p>
+		<script>
+			// Set the date we're counting down to
+			
+			var countDownDate = new Date("Jun 23, 2051 12:32:08").getTime();
+			
+			// Update the count down every 1 second
+			var x = setInterval(function() {
+
+			  // Get today's date and time
+			  var now = new Date().getTime();
+
+			  // Find the distance between now and the count down date
+			  var distance = countDownDate - now;
+
+			  // Time calculations for days, hours, minutes and seconds
+			  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+			  // Display the result in the element with id="demo"
+			  document.getElementById("timer-stop").innerHTML = days + " days " + hours + " hours "
+			  + minutes + " minutes " + seconds + " seconds ";
+
+			  // If the count down is finished, write some text 
+			  if (distance < 0) {
+				clearInterval(x);
+				document.getElementById("timer-stop").innerHTML = "0 days 0 hours 0 minute";
+			  }
+			}, 1000);
+		</script>
+	</body>
+</html>
+
